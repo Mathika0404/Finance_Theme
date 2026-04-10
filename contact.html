@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Solution Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/contact.css">
+</head>
+<body>
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <!-- CLOSE -->
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <!-- LOGO -->
+    <div class="bio-logo">
+      <i class="ri-bank-line"></i>
+    </div>
+
+    <!-- TITLE -->
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <!-- SUBTITLE -->
+    <p id="formSubtitle">
+      Login to manage your finances, track expenses, and monitor your balance
+    </p>
+
+    <!-- FORM -->
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin (Manager)</option>
+          <option value="user">User (Account Holder)</option>
+        </select>
+        <p class="role-note">Select your role to access dashboard</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+      <small id="phoneError" class="error-msg"></small>
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <!-- BUTTON -->
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <!-- SWITCH -->
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+    <!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="service.html">Service</a></li>
+      <!-- <li><a href="faq.html">FAQ</a></li> -->
+      <li><a href="contact.html">Contact Us</a></li>
+<li>
+  <a href="javascript:void(0)" class="login-btn" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+<section class="contact-hero">
+
+  <div class="contact-overlay"></div>
+
+  <div class="contact-content">
+    <h1>Get in Touch With Us</h1>
+    <p>
+      Have questions about your finances? Our team is here to help you
+      with expert guidance and support.
+    </p>
+
+    <a href="#contact-form" class="contact-btn">Contact Us</a>
+  </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+
+  <div class="contact-container">
+
+    <!-- LEFT SIDE INFO -->
+    <div class="contact-info">
+
+      <div class="info-card">
+        <i class="ri-map-pin-line"></i>
+        <h3>Address</h3>
+        <p>123 Street, Chennai, India</p>
+      </div>
+
+      <div class="info-card active">
+        <i class="ri-phone-line"></i>
+        <h3>Phone Number</h3>
+        <p>+91 98765 43210</p>
+      </div>
+
+      <div class="info-card">
+        <i class="ri-mail-line"></i>
+        <h3>Email Address</h3>
+        <p>info@foodsite.com</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <div class="contact-form-box">
+      <h2>Get In Touch</h2>
+      <p>We’d love to hear from you. Fill out the form below.</p>
+      <br>
+
+<form id="contactForm">
+
+  <input type="text" id="cname" placeholder="Your Name">
+  <small class="error"></small>
+
+  <input type="email" id="cemail" placeholder="Your Email">
+  <small class="error"></small>
+
+<input type="tel" id="cphone" placeholder="Phone Number" pattern="[0-9]*" inputmode="numeric">
+  <small class="error"></small>
+
+  <textarea id="cmessage" rows="5" placeholder="Your Message"></textarea>
+  <small class="error"></small>
+
+  <button type="submit" class="contact-btn">Send Message</button>
+
+</form>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+  <iframe 
+    src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT FINANCE -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+      </div>
+
+      <p>
+        Stackly helps you manage your finances smarter. Track income, control expenses,
+        monitor savings, and achieve your financial goals with ease and security.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact US</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Connect With Us</h4>
+      <ul class="social-links">
+        <li><a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a></li>
+        <li><a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a></li>
+        <li><a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a></li>
+        <li><a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a></li>
+      </ul>
+    </div>
+
+    <!-- FINANCE FEATURES -->
+    <div class="footer-col">
+      <h4>Features</h4>
+      <ul>
+        <li><a href="404.html">Expense Tracking</a></li>
+        <li><a href="404.html">Budget Planner</a></li>
+        <li><a href="404.html">Investment Insights</a></li>
+        <li><a href="404.html">Savings Goals</a></li>
+        <li><a href="404.html">Transaction History</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">My Account</a></li>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+        <li><a href="404.html">Security</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Stackly Finance | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = document.getElementById("cname");
+  let email = document.getElementById("cemail");
+  let phone = document.getElementById("cphone");
+  let message = document.getElementById("cmessage");
+
+  let isValid = true;
+
+  // Clear old errors
+  document.querySelectorAll(".error").forEach(el => el.innerText = "");
+  document.querySelectorAll("#contactForm input, #contactForm textarea")
+    .forEach(el => el.classList.remove("error-border"));
+
+  // NAME
+  if(name.value.trim() === ""){
+    name.nextElementSibling.innerText = "Name is required";
+    name.classList.add("error-border");
+    isValid = false;
+  }
+
+  // EMAIL
+  if(email.value.trim() === ""){
+    email.nextElementSibling.innerText = "Email is required";
+    email.classList.add("error-border");
+    isValid = false;
+  }
+  else{
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!emailPattern.test(email.value)){
+      email.nextElementSibling.innerText = "Enter valid email (example@gmail.com)";
+      email.classList.add("error-border");
+      isValid = false;
+    }
+  }
+
+  // PHONE (FIXED ✅ no duplicate declaration)
+  if(phone.value.trim() === ""){
+    phone.nextElementSibling.innerText = "Phone number is required";
+    phone.classList.add("error-border");
+    isValid = false;
+  }
+  else if(!/^[0-9]+$/.test(phone.value.trim())){
+    phone.nextElementSibling.innerText = "Only numbers are allowed";
+    phone.classList.add("error-border");
+    isValid = false;
+  }
+  else if(phone.value.length !== 10){
+    phone.nextElementSibling.innerText = "Phone number must be 10 digits";
+    phone.classList.add("error-border");
+    isValid = false;
+  }
+
+  // MESSAGE
+  if(message.value.trim() === ""){
+    message.nextElementSibling.innerText = "Message is required";
+    message.classList.add("error-border");
+    isValid = false;
+  }
+
+  // ✅ REDIRECT
+  if(isValid){
+    window.location.href = "404.html";
+  }
+});
+
+let phoneInput = document.getElementById("cphone");
+
+phoneInput.addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9]/g, "");
+});
+</script>
+<script src="./js/script.js"></script>
+</body>
+</html>

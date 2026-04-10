@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Solution Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/about.css">
+</head>
+<body>
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <!-- CLOSE -->
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <!-- LOGO -->
+    <div class="bio-logo">
+      <i class="ri-bank-line"></i>
+    </div>
+
+    <!-- TITLE -->
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <!-- SUBTITLE -->
+    <p id="formSubtitle">
+      Login to manage your finances, track expenses, and monitor your balance
+    </p>
+
+    <!-- FORM -->
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin (Manager)</option>
+          <option value="user">User (Account Holder)</option>
+        </select>
+        <p class="role-note">Select your role to access dashboard</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+      <small id="phoneError" class="error-msg"></small>
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <!-- BUTTON -->
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <!-- SWITCH -->
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+    <!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="service.html">Service</a></li>
+      <!-- <li><a href="faq.html">FAQ</a></li> -->
+      <li><a href="contact.html">Contact Us</a></li>
+<li>
+  <a href="javascript:void(0)" class="login-btn" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+<section class="about-hero">
+
+  <div class="about-overlay"></div>
+
+  <div class="about-content">
+    <h1>Empowering Your Financial Future</h1>
+    <p>
+      We help individuals and businesses manage money smarter,
+      make better decisions, and achieve long-term financial success.
+    </p>
+  </div>
+
+</section>
+
+<section class="company-intro">
+
+  <div class="intro-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="intro-image">
+      <img src="./images/about.webp" alt="Company Image">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="intro-content">
+      <span class="tag">About Us</span>
+
+      <h2>
+        We Help You Build <br>
+        A Strong Financial Future
+      </h2>
+
+<p>
+  Our platform is designed to simplify financial management for individuals and businesses alike.
+  From tracking daily expenses to planning long-term investments, we provide powerful tools that
+  help you stay in control of your money at every stage.
+
+  With real-time insights, smart budgeting features, and secure account integration, you can
+  monitor your financial activity with ease and confidence. Our intuitive dashboard transforms
+  complex data into clear, actionable insights, empowering you to make informed decisions.
+
+  Whether you're saving for future goals, managing multiple accounts, or optimizing your spending,
+  our solution adapts to your needs. We are committed to delivering a seamless, secure, and
+  user-friendly experience that supports your journey toward financial stability and growth.
+</p>
+
+      <a href="404.html" class="intro-btn">Contact Us</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="mvv-section">
+
+  <div class="section-header">
+    <h2>Our Mission, Vision & Values</h2>
+    <p>Driving financial growth with purpose and innovation</p>
+  </div>
+
+  <div class="mvv-container">
+
+    <!-- MISSION -->
+    <div class="mvv-card">
+      <div class="mvv-top mission-bg">
+        <h3>MISSION</h3>
+      </div>
+
+      <div class="mvv-icon">
+        <i class="ri-focus-2-line"></i>
+      </div>
+
+      <p>
+        Our mission is to simplify financial management and empower users with
+        tools to track, save, and grow their money efficiently and securely.
+      </p>
+    </div>
+
+    <!-- VISION -->
+    <div class="mvv-card">
+      <div class="mvv-top vision-bg">
+        <h3>VISION</h3>
+      </div>
+
+      <div class="mvv-icon">
+        <i class="ri-eye-line"></i>
+      </div>
+
+      <p>
+        Our vision is to become a leading fintech platform that transforms how
+        people interact with money through innovation and smart technology.
+      </p>
+    </div>
+
+    <!-- VALUES -->
+    <div class="mvv-card">
+      <div class="mvv-top values-bg">
+        <h3>VALUES</h3>
+      </div>
+
+      <div class="mvv-icon">
+        <i class="ri-shield-check-line"></i>
+      </div>
+
+      <p>
+        We believe in transparency, security, and customer-first solutions,
+        ensuring trust and excellence in every financial experience we deliver.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="why-choose">
+
+  <div class="section-header">
+    <h2>Why Choose Us</h2>
+    <p>Smart, secure, and reliable financial solutions for everyone</p>
+  </div>
+
+  <div class="choose-grid">
+
+    <!-- ITEM -->
+    <div class="choose-item">
+      <div class="icon"><i class="ri-briefcase-line"></i></div>
+      <h4>Professional</h4>
+      <p>Expert financial tools designed for modern users</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-award-line"></i></div>
+      <h4>Experienced</h4>
+      <p>Years of expertise in finance and technology</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-bar-chart-line"></i></div>
+      <h4>Smart Insights</h4>
+      <p>Get real-time analytics for better decisions</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-user-heart-line"></i></div>
+      <h4>User Friendly</h4>
+      <p>Simple and intuitive interface for everyone</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-flashlight-line"></i></div>
+      <h4>Fast & Efficient</h4>
+      <p>Quick performance with seamless experience</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-shield-check-line"></i></div>
+      <h4>Secure</h4>
+      <p>Advanced security to protect your data</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-team-line"></i></div>
+      <h4>Expert Support</h4>
+      <p>Dedicated team to assist you anytime</p>
+    </div>
+
+    <div class="choose-item">
+      <div class="icon"><i class="ri-star-line"></i></div>
+      <h4>Quality Service</h4>
+      <p>Delivering excellence in every feature</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="team-section">
+
+  <div class="section-header">
+    <h2>Meet Our Financial Experts</h2>
+    <p>Trusted professionals guiding your financial journey</p>
+  </div>
+
+  <div class="team-grid">
+
+    <!-- MEMBER -->
+    <div class="team-card">
+      <img src="./images/team1.webp" alt="">
+      <h3>Arun Kumar</h3>
+      <span>CEO & Co-Founder</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team2.webp" alt="">
+      <h3>Priya Sharma</h3>
+      <span>Finance Manager</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team3.webp" alt="">
+      <h3>Rahul Verma</h3>
+      <span>Investment Analyst</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team4.webp" alt="">
+      <h3>Sneha Iyer</h3>
+      <span>Risk Advisor</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team5.webp" alt="">
+      <h3>Vikram Singh</h3>
+      <span>Wealth Manager</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team6.webp" alt="">
+      <h3>Anjali Mehta</h3>
+      <span>Financial Planner</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team7.webp" alt="">
+      <h3>Karan Patel</h3>
+      <span>Tax Consultant</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="./images/team8.webp" alt="">
+      <h3>Divya Nair</h3>
+      <span>Compliance Officer</span>
+
+      <div class="social">
+        <i class="ri-facebook-fill" onclick="go404()"></i>
+        <i class="ri-twitter-x-line" onclick="go404()"></i>
+        <i class="ri-linkedin-fill" onclick="go404()"></i>
+        <i class="ri-instagram-line" onclick="go404()"></i>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT FINANCE -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+      </div>
+
+      <p>
+        Stackly helps you manage your finances smarter. Track income, control expenses,
+        monitor savings, and achieve your financial goals with ease and security.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact US</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Connect With Us</h4>
+      <ul class="social-links">
+        <li><a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a></li>
+        <li><a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a></li>
+        <li><a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a></li>
+        <li><a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a></li>
+      </ul>
+    </div>
+
+    <!-- FINANCE FEATURES -->
+    <div class="footer-col">
+      <h4>Features</h4>
+      <ul>
+        <li><a href="404.html">Expense Tracking</a></li>
+        <li><a href="404.html">Budget Planner</a></li>
+        <li><a href="404.html">Investment Insights</a></li>
+        <li><a href="404.html">Savings Goals</a></li>
+        <li><a href="404.html">Transaction History</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">My Account</a></li>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+        <li><a href="404.html">Security</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Stackly Finance | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finance Admin Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="./css/user-dashboard.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-header">
+    <h2 class="logo">STACKLY</h2>
+    <div class="close-btn" id="closeBtn">
+      <i class="ri-close-line"></i>
+    </div>
+  </div>
+
+  <ul class="menu">
+    <li>
+    <a href="#dashboard" class="active">
+      <i class="ri-dashboard-3-line"></i> Overview
+    </a>
+  </li>
+     <li>
+    <a href="#transactions">
+      <i class="ri-exchange-funds-line"></i>My Transactions
+    </a>
+  </li>
+      <li>
+    <a href="#accounts">
+      <i class="ri-bank-card-line"></i> My Accounts
+    </a>
+  </li>
+      <li>
+    <a href="#budget">
+      <i class="ri-wallet-3-line"></i> Budget Planner
+    </a>
+  </li>
+
+    <li>
+    <a href="#profile">
+      <i class="ri-user-settings-line"></i> Profile
+    </a>
+  </li>
+
+    <div class="menu-title">SYSTEM</div>
+
+    <li><a href="user-dashboard-404.html"><i class="ri-settings-4-line"></i> Settings</a></li>
+    <li><a href="user-dashboard-404.html"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+  </ul>
+
+  
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+
+    <div class="nav-left">
+      <div class="menu-btn" id="menuBtn">
+        <i class="ri-menu-line"></i>
+      </div>
+
+    </div>
+
+      <!-- CENTER -->
+  <h2 class="mobile-logo">STACKLY</h2>
+
+    <div class="nav-right">
+
+      <div class="icon">
+        <a href="user-dashboard-404.html">
+          <i class="ri-notification-2-line"></i>
+          <span class="badge">3</span>
+        </a>
+      </div>
+
+      <div class="icon">
+        <a href="user-dashboard-404.html">
+          <i class="ri-mail-line"></i>
+          <span class="badge">5</span>
+        </a>
+      </div>
+
+      <div class="profile">
+        <div class="avatar">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="profile-info">
+          <p class="name">Rohan User</p>
+          <p class="email">rohan@finstack.com</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- OVERVIEW SECTION -->
+<section id="dashboard" class="overview-section">
+
+  <!-- WELCOME -->
+  <div class="overview-header">
+    <div>
+      <h2>Welcome back, Rohan 👋</h2>
+      <p>My financial summary today</p>
+    </div>
+
+    <div class="overview-icons">
+      <div class="quick-icon">
+        <i class="ri-add-line"></i>
+        <span>Add Money</span>
+      </div>
+
+      <div class="quick-icon">
+        <i class="ri-send-plane-line"></i>
+        <span>Transfer</span>
+      </div>
+
+      <div class="quick-icon">
+        <i class="ri-wallet-3-line"></i>
+        <span>Pay Bills</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS CARDS -->
+  <div class="overview-cards">
+
+<!-- INCOME -->
+<div class="overview-card">
+  <div class="card-icon income">
+    <i class="ri-arrow-down-circle-line"></i>
+  </div>
+  <div>
+    <p>Total Income</p>
+    <h3>₹1,20,000</h3>
+  </div>
+</div>
+
+<!-- EXPENSE -->
+<div class="overview-card">
+  <div class="card-icon expense">
+    <i class="ri-arrow-up-circle-line"></i>
+  </div>
+  <div>
+    <p>Total Expense</p>
+    <h3>₹70,000</h3>
+  </div>
+</div>
+
+    <div class="overview-card">
+      <div class="card-icon savings">
+        <i class="ri-wallet-3-line"></i>
+      </div>
+      <div>
+        <p>Total Savings</p>
+        <h3>₹50,000</h3>
+      </div>
+    </div>
+
+    <div class="overview-card">
+      <div class="card-icon balance">
+        <i class="ri-bank-card-line"></i>
+      </div>
+      <div>
+        <p>Balance</p>
+        <h3>₹2,45,000</h3>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXTRA OVERVIEW DETAILS -->
+<div class="overview-extra">
+
+  <!-- MINI CHART -->
+  <div class="overview-chart">
+    <h3>Weekly Overview</h3>
+    <canvas id="overviewBarChart"></canvas>
+  </div>
+
+  <!-- RECENT ACTIVITY -->
+  <div class="overview-activity">
+
+    <h3>Recent Activity</h3>
+
+<div class="activity-item">
+  <i class="ri-arrow-down-line income"></i>
+  <p>Salary credited</p>
+  <span class="plus">+₹25,000</span>
+</div>
+
+<div class="activity-item">
+  <i class="ri-shopping-bag-line expense"></i>
+  <p>Shopping</p>
+  <span class="minus">-₹3,200</span>
+</div>
+
+<div class="activity-item">
+  <i class="ri-restaurant-line expense"></i>
+  <p>Food & Dining</p>
+  <span class="minus">-₹850</span>
+</div>
+
+<div class="activity-item">
+  <i class="ri-bank-line income"></i>
+  <p>Interest received</p>
+  <span class="plus">+₹1,200</span>
+</div>
+
+<!-- NEW -->
+<div class="activity-item">
+  <i class="ri-smartphone-line expense"></i>
+  <p>Mobile Recharge</p>
+  <span class="minus">-₹399</span>
+</div>
+
+<!-- NEW -->
+<div class="activity-item">
+  <i class="ri-wallet-3-line income"></i>
+  <p>Cashback Received</p>
+  <span class="plus">+₹250</span>
+</div>  
+
+  </div>
+
+</div>
+
+<!-- TRANSACTIONS SECTION -->
+<section id="transactions" class="txn-section">
+
+  <!-- HEADER -->
+  <h2 class="txn-title">Transaction History</h2>
+  <p class="txn-sub">Last Months transactions</p>
+
+  <!-- LIST -->
+  <div class="txn-list">
+
+    <div class="txn-item">
+      <div class="txn-user">
+        <div class="avatar">JS</div>
+        <div>
+          <p class="name">James Smith</p>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+      <p class="date">29/06/22</p>
+      <p class="amount">$259.50</p>
+      <span class="status success">Completed</span>
+    </div>
+
+    <div class="txn-item">
+      <div class="txn-user">
+        <div class="avatar">RW</div>
+        <div>
+          <p class="name">Robert William</p>
+          <span>Photo Editing</span>
+        </div>
+      </div>
+      <p class="date">25/06/22</p>
+      <p class="amount">$490.00</p>
+      <span class="status review">Reviewed</span>
+    </div>
+
+    <div class="txn-item">
+      <div class="txn-user">
+        <div class="avatar">LB</div>
+        <div>
+          <p class="name">Linda Brown</p>
+          <span>Financial Planner</span>
+        </div>
+      </div>
+      <p class="date">21/06/22</p>
+      <p class="amount">$374.00</p>
+      <span class="status success">Completed</span>
+    </div>
+
+    <div class="txn-item">
+      <div class="txn-user">
+        <div class="avatar">MB</div>
+        <div>
+          <p class="name">Michael Brown</p>
+          <span>Architect Services</span>
+        </div>
+      </div>
+      <p class="date">17/06/22</p>
+      <p class="amount">$842.00</p>
+      <span class="status success">Completed</span>
+    </div>
+
+  </div>
+
+  <!-- BALANCE -->
+  <div class="txn-chart-box">
+    <h3>Balance</h3>
+    <canvas id="txnBarChart"></canvas>
+  </div>
+
+</section>
+
+<!-- MY ACCOUNT SECTION -->
+<section id="accounts" class="myaccount-section">
+
+      <!-- HEADING -->
+  <div class="section-header">
+    <h2>My Account</h2>
+  </div>
+  
+  <!-- TOP SUMMARY -->
+  <div class="account-hero">
+    <div class="hero-left">
+      <h2>Hello, Rohan 👋</h2>
+      <p>Your financial status is looking great today</p>
+
+      <div class="hero-balance">
+        <p>Total Balance</p>
+        <h1>₹2,45,000</h1>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mini-card">
+        <i class="ri-arrow-down-line"></i>
+        <p>Income</p>
+        <h3>₹75K</h3>
+      </div>
+
+      <div class="mini-card">
+        <i class="ri-arrow-up-line"></i>
+        <p>Expense</p>
+        <h3>₹32K</h3>
+      </div>
+
+      <div class="mini-card">
+        <i class="ri-wallet-3-line"></i>
+        <p>Savings</p>
+        <h3>₹43K</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="account-main">
+
+    <!-- LEFT SIDE -->
+    <div class="account-left">
+
+<div class="card-container">
+
+  <!-- CARD 1 -->
+  <div class="debit-card">
+    <div class="card-header">
+      <span>Credit Card</span>
+      <span>STACKLY BANK</span>
+    </div>
+
+    <div class="card-chip"></div>
+
+    <p class="card-number">1234 5618 9012 3456</p>
+
+    <div class="card-details">
+      <div>
+        <span class="label">Card Holder</span>
+        <p>ROHAN</p>
+      </div>
+
+      <div>
+        <span class="label">VALID THRU</span>
+        <p>01/30</p>
+      </div>
+    </div>
+
+    <div class="card-brand">VISA</div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="debit-card card-2">
+    <div class="card-header">
+      <span>Debit Card</span>
+      <span>STACKLY BANK</span>
+    </div>
+
+    <div class="card-chip"></div>
+
+    <p class="card-number">9876 4321 5678 1234</p>
+
+    <div class="card-details">
+      <div>
+        <span class="label">Card Holder</span>
+        <p>ROHAN</p>
+      </div>
+
+      <div>
+        <span class="label">VALID THRU</span>
+        <p>11/28</p>
+      </div>
+    </div>
+
+    <div class="card-brand">VISA</div>
+  </div>
+
+</div>
+
+      <!-- ACTIVITY -->
+      <div class="account-activity">
+        <h3>Spending Activity</h3>
+        <canvas id="accountChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="account-right">
+
+      <div class="stat-card">
+        <p>Financial Health</p>
+        <h2>82%</h2>
+        <span>Excellent</span>
+      </div>
+
+      <div class="stat-card">
+        <p>Monthly Goal</p>
+        <h2>65%</h2>
+        <span>On Track</span>
+      </div>
+
+      <div class="stat-card">
+        <p>Emergency Fund</p>
+        <h2>40%</h2>
+        <span>Needs Boost</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BUDGET PLANNER SECTION -->
+<section id="budget" class="budget-section">
+
+  <!-- HEADER -->
+  <div class="section-header">
+    <h2>Budget Planner</h2>
+    <button class="add-budget" onclick="go404()">
+      <i class="ri-add-line"></i> Add Budget
+    </button>
+  </div>
+
+  <!-- TOTAL SUMMARY -->
+  <div class="budget-summary">
+    <div class="summary-card">
+      <p>Total Budget</p>
+      <h2>₹50,000</h2>
+    </div>
+
+    <div class="summary-card">
+      <p>Spent</p>
+      <h2>₹32,500</h2>
+    </div>
+
+    <div class="summary-card">
+      <p>Remaining</p>
+      <h2>₹17,500</h2>
+    </div>
+  </div>
+
+  <!-- CATEGORY BUDGET -->
+  <div class="budget-categories">
+
+    <div class="budget-item">
+      <div class="budget-top">
+        <p>Food & Dining</p>
+        <span>₹8,000 / ₹10,000</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill green" style="width:80%"></div>
+      </div>
+    </div>
+
+    <div class="budget-item">
+      <div class="budget-top">
+        <p>Shopping</p>
+        <span>₹6,000 / ₹12,000</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill blue" style="width:50%"></div>
+      </div>
+    </div>
+
+    <div class="budget-item">
+      <div class="budget-top">
+        <p>Transport</p>
+        <span>₹3,000 / ₹8,000</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill orange" style="width:40%"></div>
+      </div>
+    </div>
+
+    <div class="budget-item">
+      <div class="budget-top">
+        <p>Entertainment</p>
+        <span>₹5,500 / ₹7,000</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill red" style="width:78%"></div>
+      </div>
+    </div>
+
+    <div class="budget-item">
+  <div class="budget-top">
+    <p>Health & Fitness</p>
+    <span>₹2,500 / ₹5,000</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill green" style="width:50%"></div>
+  </div>
+</div>
+
+<div class="budget-item">
+  <div class="budget-top">
+    <p>Education</p>
+    <span>₹4,000 / ₹6,000</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill blue" style="width:66%"></div>
+  </div>
+</div>
+
+<div class="budget-item">
+  <div class="budget-top">
+    <p>Bills & Utilities</p>
+    <span>₹6,800 / ₹8,000</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill orange" style="width:85%"></div>
+  </div>
+</div>
+
+<div class="budget-item">
+  <div class="budget-top">
+    <p>Travel</p>
+    <span>₹3,200 / ₹10,000</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill blue" style="width:32%"></div>
+  </div>
+</div>
+
+<div class="budget-item">
+  <div class="budget-top">
+    <p>Subscriptions</p>
+    <span>₹1,200 / ₹2,000</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill green" style="width:60%"></div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- PROFILE SECTION -->
+<section id="profile" class="profile-section">
+
+    <div class="section-header">
+    <h2>My Profile</h2>
+  </div>
+
+  <div class="profile-container">
+
+    <!-- LEFT PROFILE -->
+    <div class="profile-card">
+
+      <div class="profile-left">
+        <img src="./images/customer1.webp" alt="profile">
+      </div>
+
+      <div class="profile-right">
+        <h2>Rohan Kumar</h2>
+        <p class="join-date">Joined: 24 Nov 2022</p>
+
+        <div class="profile-details">
+          <p><strong>Location:</strong> India, Chennai</p>
+          <p><strong>DOB:</strong> 04/01/1998</p>
+          <p><strong>Email:</strong> rohan@gmail.com</p>
+          <p><strong>Phone:</strong> +91 9876543210</p>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="social-icons">
+          <i class="ri-facebook-fill" onclick="go404()"></i>
+          <i class="ri-instagram-line" onclick="go404()"></i>
+          <i class="ri-twitter-x-line" onclick="go404()"></i>
+          <i class="ri-linkedin-fill" onclick="go404()"></i>
+        </div>
+      </div>
+
+    </div>
+
+<div class="payment-card">
+
+  <h3>Payment Details</h3>
+
+  <!-- CARD NUMBER -->
+  <div class="card-box">
+    <p>Card Number</p>
+    <h4>**** **** **** 8743</h4>
+  </div>
+
+  <!-- CARD HOLDER -->
+  <div class="card-box">
+    <p>Card Holder</p>
+    <h4>Rohan Kumar</h4>
+  </div>
+
+  <!-- EXPIRY -->
+  <div class="card-box">
+    <p>Expiry Date</p>
+    <h4>04 / 2028</h4>
+  </div>
+
+  <!-- CARD TYPE -->
+  <div class="card-box">
+    <p>Card Type</p>
+    <h4>Visa Platinum</h4>
+  </div>
+
+  <!-- BANK -->
+  <div class="card-box">
+    <p>Bank</p>
+    <h4>Stackly Bank</h4>
+  </div>
+
+  <!-- STATUS -->
+  <div class="card-box status-box">
+    <p>Status</p>
+    <h4 class="active">Active</h4>
+  </div>
+
+  <!-- PAYMENT ICONS -->
+  <div class="payment-icons">
+    <i class="ri-visa-line"></i>
+    <i class="ri-mastercard-line"></i>
+    <i class="ri-google-fill"></i>
+  </div>
+
+</div>
+
+  </div>
+
+</section>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/admin-dashboard.js"></script>
+<script>
+    const overviewChart = new Chart(document.getElementById("overviewBarChart"), {
+  type: "bar",
+  data: {
+    labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    datasets: [{
+      data: [5000, 3000, 7000, 4000, 6000, 2000, 6500],
+      backgroundColor: "#1e3a8a",
+      borderRadius: 8
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { display:false }
+    },
+    scales: {
+      y: { beginAtZero:true },
+      x: { grid:{ display:false } }
+    }
+  }
+});
+
+const txnChart = new Chart(document.getElementById("txnBarChart"), {
+  type: "bar",
+  data: {
+    labels: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
+    datasets: [{
+      data: [7000,2000,10000,5000,12000,9000,2000,13000,8000,11000,4000,9000],
+      backgroundColor: "#4f46e5",
+      borderRadius: 10,
+
+      /* 👇 IMPORTANT */
+      barPercentage: 0.9,        // bar width
+      categoryPercentage: 0.9    // space between groups
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+
+    layout: {
+      padding: {
+        left: 5,
+        right: 5
+      }
+    },
+
+    plugins:{
+      legend:{ display:false }
+    },
+
+    scales:{
+      x:{
+        grid:{ display:false },
+        ticks:{
+          padding: 5
+        }
+      },
+      y:{
+        beginAtZero:true,
+        grid:{ color:"#eee" }
+      }
+    }
+  }
+});
+
+new Chart(document.getElementById("accountChart"), {
+  type:"bar",
+  data:{
+    labels:["Jan","Feb","Mar","Apr","May","Jun"],
+    datasets:[{
+      data:[5000,3000,7000,4000,6000,4500],
+      backgroundColor:"#4f46e5",
+      borderRadius:8
+    }]
+  },
+  options:{
+    plugins:{legend:{display:false}},
+    scales:{x:{grid:{display:false}}}
+  }
+});
+
+function go404(){
+  window.location.href = "user-dashboard-404.html";
+}
+</script>
+</body>
+</html>
