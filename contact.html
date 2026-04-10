@@ -144,58 +144,67 @@
 
 </section>
 
-<!-- CONTACT SECTION -->
-<section class="contact-section">
+<section class="contact-strip">
 
-  <div class="contact-container">
+  <div class="strip-container">
 
-    <!-- LEFT SIDE INFO -->
-    <div class="contact-info">
-
-      <div class="info-card">
-        <i class="ri-map-pin-line"></i>
-        <h3>Address</h3>
-        <p>123 Street, Chennai, India</p>
-      </div>
-
-      <div class="info-card active">
-        <i class="ri-phone-line"></i>
-        <h3>Phone Number</h3>
-        <p>+91 98765 43210</p>
-      </div>
-
-      <div class="info-card">
-        <i class="ri-mail-line"></i>
-        <h3>Email Address</h3>
-        <p>info@foodsite.com</p>
-      </div>
-
+    <!-- ITEM 1 -->
+    <div class="strip-item">
+      <i class="ri-home-5-line"></i>
+      <h4>Visit Us</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <span>21 Finance Street, Chennai</span>
     </div>
 
-    <!-- RIGHT SIDE FORM -->
-    <div class="contact-form-box">
-      <h2>Get In Touch</h2>
-      <p>We’d love to hear from you. Fill out the form below.</p>
-      <br>
+    <!-- ITEM 2 -->
+    <div class="strip-item border">
+      <i class="ri-phone-line"></i>
+      <h4>Call Us</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <span>+91 98765 43210</span>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="strip-item">
+      <i class="ri-mail-line"></i>
+      <h4>Contact Us</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <span>support@stackly.com</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact-form-section">
+
+  <div class="form-container">
+
+    <h2>Get In Touch</h2>
+    <p>We’d love to hear from you. Fill out the form below.</p>
+    <br>
 
 <form id="contactForm">
 
+  <!-- NAME -->
   <input type="text" id="cname" placeholder="Your Name">
   <small class="error"></small>
 
+  <!-- EMAIL -->
   <input type="email" id="cemail" placeholder="Your Email">
   <small class="error"></small>
 
-<input type="tel" id="cphone" placeholder="Phone Number" pattern="[0-9]*" inputmode="numeric">
+  <!-- PHONE -->
+  <input type="tel" id="cphone" placeholder="Phone Number">
   <small class="error"></small>
 
-  <textarea id="cmessage" rows="5" placeholder="Your Message"></textarea>
+  <!-- MESSAGE -->
+  <textarea id="cmessage" placeholder="Your Message"></textarea>
   <small class="error"></small>
 
-  <button type="submit" class="contact-btn">Send Message</button>
+  <button type="submit">Send Message</button>
 
 </form>
-    </div>
 
   </div>
 
@@ -283,19 +292,19 @@
 </footer>
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e){
+
   e.preventDefault();
 
-  let name = document.getElementById("cname");
-  let email = document.getElementById("cemail");
-  let phone = document.getElementById("cphone");
-  let message = document.getElementById("cmessage");
+let name = document.getElementById("cname");
+let email = document.getElementById("cemail");
+let phone = document.getElementById("cphone");
+let message = document.getElementById("cmessage");
 
   let isValid = true;
 
-  // Clear old errors
+  // RESET
   document.querySelectorAll(".error").forEach(el => el.innerText = "");
-  document.querySelectorAll("#contactForm input, #contactForm textarea")
-    .forEach(el => el.classList.remove("error-border"));
+  document.querySelectorAll("input, textarea").forEach(el => el.classList.remove("error-border"));
 
   // NAME
   if(name.value.trim() === ""){
@@ -310,29 +319,20 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     email.classList.add("error-border");
     isValid = false;
   }
-  else{
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-    if(!emailPattern.test(email.value)){
-      email.nextElementSibling.innerText = "Enter valid email (example@gmail.com)";
-      email.classList.add("error-border");
-      isValid = false;
-    }
+  else if(!email.value.includes("@")){
+    email.nextElementSibling.innerText = "Enter valid email";
+    email.classList.add("error-border");
+    isValid = false;
   }
 
-  // PHONE (FIXED ✅ no duplicate declaration)
+  // PHONE
   if(phone.value.trim() === ""){
-    phone.nextElementSibling.innerText = "Phone number is required";
+    phone.nextElementSibling.innerText = "Phone is required";
     phone.classList.add("error-border");
     isValid = false;
   }
-  else if(!/^[0-9]+$/.test(phone.value.trim())){
-    phone.nextElementSibling.innerText = "Only numbers are allowed";
-    phone.classList.add("error-border");
-    isValid = false;
-  }
-  else if(phone.value.length !== 10){
-    phone.nextElementSibling.innerText = "Phone number must be 10 digits";
+  else if(!/^[0-9]+$/.test(phone.value)){
+    phone.nextElementSibling.innerText = "Only numbers allowed";
     phone.classList.add("error-border");
     isValid = false;
   }
@@ -344,16 +344,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     isValid = false;
   }
 
-  // ✅ REDIRECT
+ // ✅ REDIRECT WORKS NOW
   if(isValid){
     window.location.href = "404.html";
   }
-});
 
-let phoneInput = document.getElementById("cphone");
-
-phoneInput.addEventListener("input", function () {
-  this.value = this.value.replace(/[^0-9]/g, "");
 });
 </script>
 <script src="./js/script.js"></script>
